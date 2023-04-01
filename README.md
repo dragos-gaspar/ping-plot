@@ -26,6 +26,5 @@ Other options can be configured by modifying values in `config.py`.
 
 ### Known issues
 - Occasionally, the main thread will hang after manually closing the
-  `matplotlib` window, causing the exit logic to be unreachable while
-  the thread that reads and displays ping times continues to run.
-  (pls help)
+`matplotlib` window, causing the exit logic for the ping thread to
+be unreachable. (pls help)
