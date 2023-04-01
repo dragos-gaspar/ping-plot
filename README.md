@@ -28,3 +28,17 @@ Other options can be configured by modifying values in `config.py`.
 - Occasionally, the main thread will hang after the `pyplot`
 window is manually closed, causing the exit logic for the ping
 reading thread to be unreachable. (pls help)
+
+### High level description
+
+`main()` starts a separate thread via a `Pinger` instance, which
+runs the `ping` command, polls its stdout and extracts the ping with
+regex, storing it in its `frame` attribute, along with the current
+datetime. Meanwhile, the main thread creates a `Plotter` instance
+and stores `frame` inside it. `Plotter` starts the `matplotlib`
+animation, plotting the data available  in `frame` every
+`Config.PLOT_POLLING_INTERVAL` seconds. Access to `frame` is done
+with a lock to avoid race conditions between threads. Once the
+`pyplot` window is closed by the user, the `Pinger.stop` attribute
+will be set from `main()`, prompting `Pinger` to exit its polling
+loop and send `CTRL+C` to the spawned `ping` subprocess.
