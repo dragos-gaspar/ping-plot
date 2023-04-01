@@ -25,6 +25,6 @@ python ping-plot.py --help
 Other options can be configured by modifying values in `config.py`.
 
 ### Known issues
-- Occasionally, the main thread will hang after manually closing the
-`matplotlib` window, causing the exit logic for the ping thread to
-be unreachable. (pls help)
+- Occasionally, the main thread will hang after the `pyplot`
+window is manually closed, causing the exit logic for the ping
+reading thread to be unreachable. (pls help)
