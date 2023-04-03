@@ -1,7 +1,6 @@
 import logging
 import warnings
 
-import matplotlib
 from matplotlib import pyplot as plt
 from matplotlib.animation import FuncAnimation
 from matplotlib.dates import DateFormatter
@@ -10,7 +9,6 @@ from config import Config
 
 
 warnings.filterwarnings("ignore")
-matplotlib.use("TkAgg")
 logger = logging.getLogger('ping-plot')
 
 
