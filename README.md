@@ -36,7 +36,7 @@ runs the <samp>ping</samp> command, polls its stdout and extracts the ping with
 regex, storing it in its <samp>frame</samp> attribute, along with the current
 datetime. Meanwhile, the main thread creates a <samp>Plotter</samp> instance
 and stores <samp>Pinger.frame</samp> inside it. <samp>Plotter</samp> starts the <samp>matplotlib</samp>
-animation, plotting the data available  in <samp>Pinger.frame</samp> every
+animation (in the main thread), plotting the data available  in <samp>Pinger.frame</samp> every
 <samp>Config.PLOT_POLLING_INTERVAL</samp> seconds. Access to <samp>Pinger.frame</samp> is done
 with a lock to avoid race conditions between threads. Once the
 <samp>pyplot</samp> window is closed by the user, the <samp>Pinger.stop</samp> attribute
