@@ -1,7 +1,7 @@
 # ping-plot
 Simple tool for visualising ping times to a target host using
-`matplotlib`. The underlying implementation reads ping times from
-the stdout of a `ping` subprocess.
+<samp>matplotlib</samp>. The underlying implementation reads ping times from
+the stdout of a <samp>ping</samp> subprocess.
 
 ## Overview
 
@@ -22,23 +22,23 @@ or
 python ping-plot.py --help
 ```
 
-Other options can be configured by modifying values in `config.py`.
+Other options can be configured by modifying values in <samp>config.py</samp>.
 
 ### Known issues
-- Occasionally, the main thread will hang after the `pyplot`
+- Occasionally, the main thread will hang after the <samp>pyplot</samp>
 window is manually closed, causing the exit logic for the ping
 reading thread to be unreachable. (pls help)
 
 ### High level description
 
-`main()` starts a separate thread via a `Pinger` instance, which
-runs the `ping` command, polls its stdout and extracts the ping with
-regex, storing it in its `frame` attribute, along with the current
-datetime. Meanwhile, the main thread creates a `Plotter` instance
-and stores `frame` inside it. `Plotter` starts the `matplotlib`
-animation, plotting the data available  in `frame` every
-`Config.PLOT_POLLING_INTERVAL` seconds. Access to `frame` is done
+<samp>main()</samp> starts a separate thread via a <samp>Pinger</samp> instance, which
+runs the <samp>ping</samp> command, polls its stdout and extracts the ping with
+regex, storing it in its <samp>frame</samp> attribute, along with the current
+datetime. Meanwhile, the main thread creates a <samp>Plotter</samp> instance
+and stores <samp>Pinger.frame</samp> inside it. <samp>Plotter</samp> starts the <samp>matplotlib</samp>
+animation, plotting the data available  in <samp>Pinger.frame</samp> every
+<samp>Config.PLOT_POLLING_INTERVAL</samp> seconds. Access to <samp>Pinger.frame</samp> is done
 with a lock to avoid race conditions between threads. Once the
-`pyplot` window is closed by the user, the `Pinger.stop` attribute
-will be set from `main()`, prompting `Pinger` to exit its polling
-loop and send `CTRL+C` to the spawned `ping` subprocess.
+<samp>pyplot</samp> window is closed by the user, the <samp>Pinger.stop</samp> attribute
+will be set from <samp>main()</samp>, prompting <samp>Pinger</samp> to exit its polling
+loop and send <samp>CTRL+C</samp> to the spawned <samp>ping</samp> subprocess.
