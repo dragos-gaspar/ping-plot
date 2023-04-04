@@ -1,12 +1,15 @@
 import logging
 import warnings
 
+import matplotlib
 from matplotlib import pyplot as plt
 from matplotlib.animation import FuncAnimation
 from matplotlib.dates import DateFormatter
 
 from config import Config
 
+# Workaround for issue where main thread hands on plt.show() after closing plot window
+matplotlib.use('WxAgg')
 
 warnings.filterwarnings("ignore")
 logger = logging.getLogger('ping-plot')

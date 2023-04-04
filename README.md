@@ -15,7 +15,7 @@ pip install -r requrements.txt
 ```
 #### Run the main script
 ```commandline
-python ping-plot.py -i <HOST_IP>
+python ping-plot.py -i HOST_IP
 ```
 or
 ```commandline
@@ -27,7 +27,8 @@ Other options can be configured by modifying values in <samp>config.py</samp>.
 ### Known issues
 - Occasionally, the main thread will hang after the <samp>pyplot</samp>
 window is manually closed, causing the exit logic for the ping
-reading thread to be unreachable. (pls help)
+reading thread to be unreachable. EDIT: using <samp>wxWidgets</samp> as
+a backend for <samp>matplotlib</samp> seems to fix this.
 
 ### High level description
 
