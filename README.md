@@ -43,3 +43,7 @@ with a lock to avoid race conditions between threads. Once the
 <samp>pyplot</samp> window is closed by the user, the <samp>Pinger.stop</samp> attribute
 will be set from <samp>main()</samp>, prompting <samp>Pinger</samp> to exit its polling
 loop and send <samp>CTRL+C</samp> to the spawned <samp>ping</samp> subprocess.
+
+#### Sequence diagram
+
+[Sequence diagram](image/ping-plot.svg)
