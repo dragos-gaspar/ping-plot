@@ -77,11 +77,13 @@ class Frame:
 
         :param val:
         """
+        t = get_time()
+
         with self._lock:
-            t = get_time()
             self.x.push(t)
             self.y.push(val)
-            print(f'{t.replace(microsecond=0)} - ping: {val} ms')
+
+        print(f'{t.replace(microsecond=0)} - ping: {val} ms')
 
 
 class Pinger(threading.Thread):

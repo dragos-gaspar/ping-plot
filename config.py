@@ -1,3 +1,3 @@
 class Config:
-    TIMEFRAME = 300  # Seconds
-    PLOT_POLLING_INTERVAL = 1  # Seconds
+    TIMEFRAME = 300  # Maximum number of ping data points to store/display
+    PLOT_REFRESH_RATE = 1  # Seconds

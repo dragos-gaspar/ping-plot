@@ -43,6 +43,6 @@ class Plotter:
         self.ax.xaxis.set_major_formatter(self.formatter)
 
     def plot(self) -> None:
-        _ = FuncAnimation(self.fig, self._plot_frame, interval=Config.PLOT_POLLING_INTERVAL * 1000)
+        _ = FuncAnimation(self.fig, self._plot_frame, interval=Config.PLOT_REFRESH_RATE * 1000)
         logger.debug('Showing plot window...')
         plt.show()
