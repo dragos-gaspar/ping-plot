@@ -46,4 +46,4 @@ loop and send <samp>CTRL+C</samp> to the spawned <samp>ping</samp> subprocess.
 
 #### Sequence diagram
 
-[Sequence diagram](image/ping-plot.svg)
+![Sequence diagram](image/ping-plot.svg)
