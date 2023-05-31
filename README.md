@@ -15,7 +15,7 @@ pip install -r requrements.txt
 ```
 #### Run the main script
 ```commandline
-python ping-plot.py -i HOST_IP
+python ping-plot.py HOST_IP
 ```
 or
 ```commandline

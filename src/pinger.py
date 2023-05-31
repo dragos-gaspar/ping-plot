@@ -83,7 +83,8 @@ class Frame:
             self.x.push(t)
             self.y.push(val)
 
-        print(f'{t.replace(microsecond=0)} - ping: {val} ms')
+        if val is not None:
+            print(f'{t.replace(microsecond=0)} - ping: {val} ms')
 
 
 class Pinger(threading.Thread):
@@ -121,6 +122,7 @@ class Pinger(threading.Thread):
                 timeout_match = timeout_re.match(line)
                 if timeout_match:
                     print(timeout_match[1])
+                    self.frame.add(None)
                 else:
                     # Check if line contains ping value
                     ping_match = ping_re.match(line)
